@@ -1,0 +1,14 @@
+2004/08/15
+v2.70
+ne vivodit soobsheniya o dublikatah v mrk
+default english input
+rusinput in multistring
+переключение языка scrollock
+
+2004/08/19
+console fix
+fix load textures in morrowind.exe (теперь всегда сначала пробует взять в открытом виде)
+
+2005/02/05
+улучшена работа расширения консоли
+показыватся урон на стрелах
