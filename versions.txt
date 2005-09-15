@@ -1,13 +1,17 @@
+v3.00
+добавлена поддержка Tribunal 1.4.1313
+
+v2.95
+Пофикшен unarmored bug, включается в angel.ini, секция [Rules], fix_unarmored_bug=1<br>
+
 2004/08/15
 v2.70
-ne vivodit soobsheniya o dublikatah v mrk
-default english input
-rusinput in multistring
-переключение языка scrollock
+убран вывод предупреждений о дубликатах в mrk файлах в NewWarnings.txt<br>
+возможно переключать язык ввода c помощью Scroll Lock (работает в том числе и в многостроковых полях ввода) <br>
 
 2004/08/19
 console fix
-fix load textures in morrowind.exe (теперь всегда сначала пробует взять в открытом виде)
+картинки в книгах сначала пытаются загрузится из "Data Files\BookArt" (решает проблему с английскими картинками в книгах, появившуюся в Bloodmoon)<br>
 
 2005/02/05
 улучшена работа расширения консоли

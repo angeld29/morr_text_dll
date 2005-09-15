@@ -1,7 +1,7 @@
 // stdafx.h : include file for standard system include files,
 // or project specific include files that are used frequently, but
 // are changed infrequently
-// $Id: stdafx.h,v 1.1 2005-09-06 19:02:30 AngelD Exp $ 
+// $Id: stdafx.h,v 1.2 2005-09-15 17:20:13 AngelD Exp $ 
 //
 
 #pragma once
@@ -26,6 +26,7 @@ BOOL InitDialogEngine( void );
 void InitMWKeyboard();
 void InitItemInfo();
 void InitConsole();
-
+void InitArmorFix();
+extern BOOL inmenu;
 
 // TODO: reference additional headers your program requires here

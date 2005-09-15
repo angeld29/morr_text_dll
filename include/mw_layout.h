@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////
 // mw_layout
 // -------------------------------------------------------------------
-// $Id: mw_layout.h,v 1.1 2005-09-06 19:02:30 AngelD Exp $ 
+// $Id: mw_layout.h,v 1.2 2005-09-15 17:20:13 AngelD Exp $ 
 //////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -47,6 +47,10 @@ extern DWORD hook_addr_EnterCharMultiString;
 extern DWORD hook_addr_GetKeyData;
 
 extern DWORD unarmored_fix_addr;
+extern DWORD hook_addr_enter_menu;
+extern DWORD hook_addr_leave_menu;
+extern DWORD addr_update_ac;
+
 //items_info
 extern DWORD hook_addr_item_info;
 extern DWORD addr_item_info_normal_exit;

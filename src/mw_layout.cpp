@@ -1,5 +1,5 @@
 // morr_text_dll.cpp : Defines the entry point for the DLL application.
-// $Id: mw_layout.cpp,v 1.1 2005-09-06 19:02:30 AngelD Exp $ 
+// $Id: mw_layout.cpp,v 1.2 2005-09-15 17:20:13 AngelD Exp $ 
 //
 
 #include "stdafx.h"
@@ -38,12 +38,16 @@ DWORD hook_addr_EnterChar;
 DWORD hook_addr_EnterCharMultiString;
 DWORD hook_addr_GetKeyData;
 
-DWORD unarmored_fix_addr;
 //items_info
 DWORD hook_addr_item_info;
 DWORD addr_item_info_normal_exit;
 DWORD addr_item_info_my_exit;
 
+DWORD unarmored_fix_addr;
+DWORD hook_addr_enter_menu;
+DWORD hook_addr_leave_menu;
+DWORD hook_addr_gameframe;
+DWORD addr_update_ac;
 
 void setup_mw_layout()
 {
@@ -82,10 +86,17 @@ void setup_tribunal_layout()
          hook_addr_GetKeyData			= 0x406754;
 
          unarmored_fix_addr			= 0x549B4D;
+         hook_addr_enter_menu                   = 0x58f4d0;
+         hook_addr_leave_menu                   = 0x58F660;
+         addr_update_ac                         = 0x5C7F30;
+
          //items_info
          hook_addr_item_info			= 0x58B676;
          addr_item_info_normal_exit	= 0x58B67B;
          addr_item_info_my_exit		= 0x58B90A;
+         
+         hook_addr_gameframe = 0x0416FE7;
+
 }
 void setup_bloodmoon_layout()
 {
@@ -120,10 +131,16 @@ void setup_bloodmoon_layout()
          hook_addr_GetKeyData			= 0x4066b4;
 
          unarmored_fix_addr			= 0x0054d87d;
+         hook_addr_enter_menu                   = 0x595020;
+         hook_addr_leave_menu                   = 0x5951b0;
+         addr_update_ac                         = 0x5CDC30;
+
          //items_info
          hook_addr_item_info			= 0x591219;
          addr_item_info_normal_exit	= 0x59121E;
          addr_item_info_my_exit		= 0x59146B;
+
+         hook_addr_gameframe = 0x417227;
 }
 struct section_head {
 	char    name[8];

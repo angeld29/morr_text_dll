@@ -1,6 +1,6 @@
 // morr_text_dll.cpp : Defines the entry point for the DLL application.
 //
-// $Id: morr_text_dll.cpp,v 1.1 2005-09-06 19:02:30 AngelD Exp $ 
+// $Id: morr_text_dll.cpp,v 1.2 2005-09-15 17:20:13 AngelD Exp $ 
 
 #include "stdafx.h"
 
@@ -52,11 +52,9 @@ BOOL PRIVATE Initialize( HANDLE hModule )
 		return FALSE;
 	PrioritySet();
 	FixLoadBsa();
-	if( GetPrivateProfileInt("Rules","fix_unarmored_bug",0,".\\Angel.ini") != 0 )
-		FillBytes(unarmored_fix_addr,0x90,6);
 	InitMWKeyboard();
 	InitItemInfo();
-
+	InitArmorFix();
 	if( GetPrivateProfileInt("General","EnableConsole",0,".\\Angel.ini") != 0 )
 	        InitConsole();
 	

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // HelperFunctions.cpp
 // --------------------------------------------------------------------------
-// $Id: HelperFunctions.cpp,v 1.1 2005-09-06 19:02:30 AngelD Exp $ 
+// $Id: HelperFunctions.cpp,v 1.2 2005-09-15 17:20:13 AngelD Exp $ 
 // Helper functions
 // 
 /////////////////////////////////////////////////////////////////////////////
@@ -17,7 +17,8 @@
 VOID   *PRIVATE newmemcpy( DWORD lpDest, DWORD lpSource, int len )
 {
 	DWORD   oldSourceProt, oldDestProt = 0;
-
+	if( !lpDest || !lpSource )
+	        return NULL;
 	VirtualProtect( ( void * ) lpSource, len, PAGE_EXECUTE_READWRITE, &oldSourceProt );
 	VirtualProtect( ( void * ) lpDest, len, PAGE_EXECUTE_READWRITE, &oldDestProt );
 	memcpy( ( void * ) lpDest, ( void * ) lpSource, len );
@@ -35,6 +36,8 @@ VOID   *PRIVATE newmemcpy( DWORD lpDest, DWORD lpSource, int len )
 VOID   *PRIVATE FillBytes( DWORD lpDest, BYTE ch, int len )
 {
 	DWORD   oldDestProt = 0;
+	if( !lpDest )
+	        return NULL;
 
 	VirtualProtect( ( void * ) lpDest, len, PAGE_EXECUTE_READWRITE, &oldDestProt );
 	memset( ( void * ) lpDest, ch, len );
@@ -48,6 +51,8 @@ VOID   *PRIVATE FillBytes( DWORD lpDest, BYTE ch, int len )
 VOID   *PRIVATE PutDWord( DWORD lpDest, DWORD ch )
 {
 	DWORD   oldDestProt = 0;
+	if( !lpDest )
+	        return NULL;
 
 	VirtualProtect( ( void * ) lpDest, 4, PAGE_EXECUTE_READWRITE, &oldDestProt );
 	*( DWORD * ) ( lpDest ) = ch;
@@ -58,6 +63,8 @@ VOID   *PRIVATE PutDWord( DWORD lpDest, DWORD ch )
 VOID   *PRIVATE PutWord( DWORD lpDest, WORD ch )
 {
 	DWORD   oldDestProt = 0;
+	if( !lpDest )
+	        return NULL;
 
 	VirtualProtect( ( void * ) lpDest, 4, PAGE_EXECUTE_READWRITE, &oldDestProt );
 	*( WORD * ) ( lpDest ) = ch;
@@ -77,6 +84,8 @@ BOOL PRIVATE Intercept( int instruction, DWORD lpSource, DWORD lpDest, int len )
 	/*char t[1024];
 	   sprintf(t,"Code at %.8x intercepted and routed to %.8x",lpSource,lpDest);
 	   fep->GamePrintVerbose(t); */
+	if( !lpDest || !lpSource )
+	        return FALSE;
 
 	BYTE   *buffer = new BYTE[len];
 
@@ -100,6 +109,8 @@ BOOL PRIVATE ReplaceCode( int instruction, DWORD lpSource, DWORD lpDest, int len
 {
 
 	BYTE   *buffer = new BYTE[len];
+	if( !lpDest || !lpSource )
+	        return FALSE;
 
 	buffer[0] = instruction;
 	*( DWORD * ) ( buffer + 1 ) = lpDest - ( lpSource + 5 );
