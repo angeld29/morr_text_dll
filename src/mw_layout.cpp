@@ -1,5 +1,5 @@
 // morr_text_dll.cpp : Defines the entry point for the DLL application.
-// $Id: mw_layout.cpp,v 1.2 2005-09-15 17:20:13 AngelD Exp $ 
+// $Id: mw_layout.cpp,v 1.3 2005-11-15 03:32:24 AngelD Exp $ 
 //
 
 #include "stdafx.h"
@@ -100,7 +100,7 @@ void setup_tribunal_layout()
 }
 void setup_bloodmoon_layout()
 {
-		 gamedatap = (DWORD*)0x7C67dC;
+	 gamedatap = (DWORD*)0x7C67dC;
          con_hook_error_exit = 0x4FCE3E;
          con_hook_normal_exit = 0x4FCD26;
          hook_addr_console = 0x4fcd20;
