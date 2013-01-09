@@ -1,6 +1,7 @@
 /Debug/
 /Release/
 /ReleaseProtect/
+_build
 *.sdf
 *.opensdf
 *.user
